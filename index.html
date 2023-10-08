@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./unpkg.com_vue@3.3.4_dist_vue.global.js"></script>
+</head>
+
+<body>
+
+
+  <div id="app">{{ message }}</div>
+
+  <script>
+    const { createApp, ref, reactive } = Vue
+
+    createApp({
+      setup() {
+        const a = ref({a: 1})
+   
+        const message = reactive({
+          a: 1
+        })
+        debugger
+        console.log(message.a)
+        // console.log(a)
+        return {
+          message
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var p = new Proxy(
+      { a: 1 },
+      {
+        get: function (target, property, receiver) {
+          return target[property];
+        },
+        set(target, property, value, receiver) {
+          return target[property] = value
+        },
+        has(target, property) {
+          return target.hasOwnProperty(property) ? true : false
+        },
+        deleteProperty(target, property) {
+          if (target.hasOwnProperty(property)) {
+            delete target[property]
+            return true
+          } else {
+            return false
+          }
+        },
+        ownKeys(target) {
+       
+          return Object.keys(target)
+        }
+      },
+
+    );
+    // console.log(p)
+    //     console.log(p.a); // "called: a"; ouptut 10
+    p.a = 20
+
+    console.log('a' in p)
+    // console.log(delete p.a)
+    console.log(Object.keys(p))
+  </script>
+</body>
+
+</html>
