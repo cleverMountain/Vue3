@@ -11,7 +11,7 @@
 <body>
   <script>
     var p = new Proxy(
-      { a: 1 },
+      new Map(),
       {
         get: function (target, property, receiver) {
           return target[property];
@@ -37,7 +37,7 @@
       },
 
     );
-    // console.log(p)
+    console.log(p)
     //     console.log(p.a); // "called: a"; ouptut 10
     p.a = 20
 
