@@ -17,21 +17,25 @@
   <script>
     const { createApp, ref, reactive } = Vue
 
-    createApp({
+    let b = createApp({
       setup() {
-        const a = ref({a: 1})
-        debugger
+        const a = ref({ a: 1 })
+ 
         const message = reactive({
           a: 1
         })
-      
-        console.log(message.a)
-        // console.log(a)
+
+
+    
         return {
           message
         }
       }
-    }).mount('#app')
+    })
+        console.log(b)
+        debugger
+        let c =  b.mount('#app')
+        console.log(c)
   </script>
 </body>
 

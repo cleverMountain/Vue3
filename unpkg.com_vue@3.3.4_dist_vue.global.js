@@ -1303,7 +1303,6 @@ var Vue = (function (exports) {
       return rawValue;
     }
     let res = new RefImpl(rawValue, shallow);
-    console.log(res)
     return res
   }
   class RefImpl {
@@ -10443,7 +10442,9 @@ Component that was made reactive: `,
   let renderer;
   let enabledHydration = false;
   function ensureRenderer() {
-    return renderer || (renderer = createRenderer(rendererOptions));
+    // console.log(rendererOptions)
+    renderer = renderer || createRenderer(rendererOptions)
+    return renderer
   }
   function ensureHydrationRenderer() {
     renderer = enabledHydration ? renderer : createHydrationRenderer(rendererOptions);
@@ -10457,6 +10458,10 @@ Component that was made reactive: `,
     ensureHydrationRenderer().hydrate(...args);
   };
   const createApp = (...args) => {
+    debugger
+    const app1 = ensureRenderer()
+    console.log(app1)
+    
     const app = ensureRenderer().createApp(...args);
     {
       injectNativeTagCheck(app);
