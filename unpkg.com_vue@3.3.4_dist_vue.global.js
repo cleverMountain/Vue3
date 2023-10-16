@@ -3989,7 +3989,9 @@ var Vue = (function (exports) {
           current = null;
           return rawVNode;
         }
+        debugger
         let vnode = getInnerChild(rawVNode);
+        console.log(vnode)
         const comp = vnode.type;
         const name = getComponentName(
           isAsyncWrapper(vnode) ? vnode.type.__asyncResolved || {} : comp
@@ -8181,6 +8183,8 @@ If you want to remount the same app, move your app creation logic into a factory
     return ref != null ? isString(ref) || isRef(ref) || isFunction(ref) ? { i: currentRenderingInstance, r: ref, k: ref_key, f: !!ref_for } : ref : null;
   };
   function createBaseVNode(type, props = null, children = null, patchFlag = 0, dynamicProps = null, shapeFlag = type === Fragment ? 0 : 1, isBlockNode = false, needFullChildrenNormalization = false) {
+ 
+    debugger
     const vnode = {
       __v_isVNode: true,
       __v_skip: true,
