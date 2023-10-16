@@ -1315,7 +1315,7 @@ var Vue = (function (exports) {
       this._value = __v_isShallow ? value : toReactive(value);
     }
     get value() {
-      debugger
+ 
       trackRefValue(this);
       return this._value;
     }
@@ -10439,6 +10439,7 @@ Component that was made reactive: `,
   }
 
   const rendererOptions = /* @__PURE__ */ extend({ patchProp }, nodeOps);
+
   let renderer;
   let enabledHydration = false;
   function ensureRenderer() {
@@ -10458,11 +10459,18 @@ Component that was made reactive: `,
     ensureHydrationRenderer().hydrate(...args);
   };
   const createApp = (...args) => {
-    debugger
+
     const app1 = ensureRenderer()
+    /**
+     * {
+     *   render,
+     *   hydrate,
+     *   createApp: createAppApi
+     * }
+     */
     console.log(app1)
     
-    const app = ensureRenderer().createApp(...args);
+    const app = app1.createApp(...args);
     {
       injectNativeTagCheck(app);
       injectCompilerOptionsCheck(app);

@@ -15,27 +15,29 @@
   <div id="app">{{ message }}</div>
 
   <script>
-    const { createApp, ref, reactive } = Vue
-
+    const { createApp, ref, reactive, toRef } = Vue
+debugger
     let b = createApp({
       setup() {
-        const a = ref({ a: 1 })
- 
-        const message = reactive({
-          a: 1
-        })
+        // const a = ref({ a: 1 })
 
+        // const message = reactive({
+        //   a: 1
+        // })
+        const obj = {a: 1}
+      
+        let message = toRef(obj, 'b', 3)
 
-    
+     
         return {
           message
         }
       }
     })
-        console.log(b)
-        debugger
-        let c =  b.mount('#app')
-        console.log(c)
+   
+
+    let c = b.mount('#app')
+   
   </script>
 </body>
 
